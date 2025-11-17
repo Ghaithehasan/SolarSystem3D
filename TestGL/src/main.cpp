@@ -175,7 +175,7 @@ int main() {
     Shader shader("shaders/basic_vertex.glsl", "shaders/basic_fragment.glsl");
 
     PendulumClock clock;
-    clock.SetTime(10, 30);  
+    clock.SetTime(10, 30, 0);  // 10:30:00
     clock.StartPendulum();
     
     updateCameraPosition();

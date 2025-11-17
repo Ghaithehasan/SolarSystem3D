@@ -19,22 +19,35 @@ public:
 
     void Update(float deltaTime);
 
-    void SetTime(int hours, int minutes);
+    void SetTime(int hours, int minutes, int seconds = 0);
 
     void StartPendulum();
     void StopPendulum();
+    
+
+    int GetHours() const { return currentHours; }
+    int GetMinutes() const { return currentMinutes; }
+    int GetSeconds() const { return currentSeconds; }
 
 private:
     std::unique_ptr<ClockBox> box;
     std::unique_ptr<ClockFace> face;
     std::unique_ptr<ClockHand> hourHand;
     std::unique_ptr<ClockHand> minuteHand;
+    std::unique_ptr<ClockHand> secondHand;
     std::unique_ptr<Pendulum> pendulum;
     
     std::vector<std::unique_ptr<NumberMarker>> numberMarkers;
     
     float clockSize;
     float faceRadius;
+    
+
+    int currentHours;
+    int currentMinutes;
+    int currentSeconds;
+    float initialPendulumTime;  
+    int initialTotalSeconds;    
     
     void InitializeComponents();
 };

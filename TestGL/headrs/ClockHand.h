@@ -7,8 +7,9 @@
 class ClockHand : public ClockComponent {
 public:
     enum HandType {
-        HOUR_HAND,      // عقرب الساعة
-        MINUTE_HAND     // عقرب الدقيقة
+        HOUR_HAND,      
+        MINUTE_HAND,    
+        SECOND_HAND     
     };
 
     ClockHand(HandType type);
@@ -17,7 +18,7 @@ public:
     virtual void Draw(Shader& shader, const glm::mat4& view, const glm::mat4& projection) override;
     virtual void Update(float deltaTime) override;
 
-    void SetTime(int hours, int minutes);
+    void SetTime(int hours, int minutes, int seconds = 0);
 
 private:
     HandType handType;
@@ -26,7 +27,7 @@ private:
     float currentAngle;  
     
     void GenerateHandVertices();
-    void CalculateAngle(int hours, int minutes);
+    void CalculateAngle(int hours, int minutes, int seconds = 0);
 };
 
 #endif

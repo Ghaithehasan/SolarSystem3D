@@ -9,13 +9,17 @@ ClockHand::ClockHand(HandType type)
         handLength = 0.35f;  
         handWidth = 0.035f; 
     }
-    else {
+    else if (type == MINUTE_HAND) {
         handLength = 0.45f;  
         handWidth = 0.025f; 
     }
+    else {  
+        handLength = 0.40f;  
+        handWidth = 0.015f; 
+    }
 
     GenerateHandVertices();
-    std::cout << "ClockHand created: type=" << (type == HOUR_HAND ? "HOUR" : "MINUTE")
+    std::cout << "ClockHand created: type=" << (type == HOUR_HAND ? "HOUR" : (type == MINUTE_HAND ? "MINUTE" : "SECOND"))
         << ", length=" << handLength << ", width=" << handWidth
         << ", VAO=" << VAO << ", indexCount=" << indexCount << std::endl;
 }
@@ -34,12 +38,13 @@ void ClockHand::GenerateHandVertices() {
 
     float r, g, b;
     if (handType == HOUR_HAND) {
-    
-        r = 0.3f; g = 0.3f; b = 0.3f;
+        r = 0.3f; g = 0.3f; b = 0.3f;  
     }
-    else {
-    
-        r = 0.25f; g = 0.25f; b = 0.25f;
+    else if (handType == MINUTE_HAND) {
+        r = 0.25f; g = 0.25f; b = 0.25f;  
+    }
+    else {  
+        r = 0.8f; g = 0.1f; b = 0.1f;  
     }
 
   
@@ -59,19 +64,16 @@ void ClockHand::GenerateHandVertices() {
         -w,    l, -thickness,   -1.0f, 0.0f, 0.0f,    r, g, b,
         -w,    l,  thickness,   -1.0f, 0.0f, 0.0f,    r, g, b,
 
-        // Right side
          w,  0.0f,  thickness,    1.0f, 0.0f, 0.0f,    r, g, b,
          w,  0.0f, -thickness,    1.0f, 0.0f, 0.0f,    r, g, b,
          w,    l, -thickness,    1.0f, 0.0f, 0.0f,    r, g, b,
          w,    l,  thickness,    1.0f, 0.0f, 0.0f,    r, g, b,
 
-         // Top
          -w,    l,  thickness,    0.0f, 1.0f, 0.0f,    r, g, b,
           w,    l,  thickness,    0.0f, 1.0f, 0.0f,    r, g, b,
           w,    l, -thickness,    0.0f, 1.0f, 0.0f,    r, g, b,
          -w,    l, -thickness,    0.0f, 1.0f, 0.0f,    r, g, b,
 
-         // Bottom
          -w,  0.0f,  thickness,    0.0f, -1.0f, 0.0f,   r, g, b,
           w,  0.0f,  thickness,    0.0f, -1.0f, 0.0f,   r, g, b,
           w,  0.0f, -thickness,    0.0f, -1.0f, 0.0f,   r, g, b,
@@ -79,17 +81,11 @@ void ClockHand::GenerateHandVertices() {
         });
 
     indices.insert(indices.end(), {
-        // Front
         0, 1, 2,  2, 3, 0,
-        // Back
         4, 6, 5,  6, 4, 7,
-        // Left
         8, 9, 10,  10, 11, 8,
-        // Right
         12, 13, 14,  14, 15, 12,
-        // Top
         16, 17, 18,  18, 19, 16,
-        // Bottom
         20, 21, 22,  22, 23, 20
         });
 
@@ -97,18 +93,22 @@ void ClockHand::GenerateHandVertices() {
         indices.data(), indices.size());
 }
 
-void ClockHand::SetTime(int hours, int minutes) {
-    CalculateAngle(hours, minutes);
+void ClockHand::SetTime(int hours, int minutes, int seconds) {
+    CalculateAngle(hours, minutes, seconds);
 }
 
-void ClockHand::CalculateAngle(int hours, int minutes) {
+void ClockHand::CalculateAngle(int hours, int minutes, int seconds) {
     if (handType == HOUR_HAND) {
-        float hourAngle = (hours % 12) * 30.0f + minutes * 0.5f;
+        float hourAngle = (hours % 12) * 30.0f + minutes * 0.5f + seconds * (0.5f / 60.0f);
         currentAngle = glm::radians(hourAngle - 90.0f);  
     }
-    else {
-        float minuteAngle = minutes * 6.0f;
+    else if (handType == MINUTE_HAND) {
+        float minuteAngle = minutes * 6.0f + seconds * 0.1f;
         currentAngle = glm::radians(minuteAngle - 90.0f);  
+    }
+    else {  
+        float secondAngle = seconds * 6.0f;
+        currentAngle = glm::radians(secondAngle - 90.0f);  
     }
 
     SetRotation(glm::vec3(0.0f, 0.0f, currentAngle));

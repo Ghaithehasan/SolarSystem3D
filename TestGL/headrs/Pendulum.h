@@ -15,7 +15,10 @@ public:
     void SetAmplitude(float amplitude);  
     void SetPeriod(float period);        
     void Start();                        
-    void Stop();                         
+    void Stop();
+    
+    float GetCurrentTime() const { return currentTime; }
+    float GetPeriod() const { return period; }                         
 
 private:
     float pendulumLength;

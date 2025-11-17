@@ -15,38 +15,38 @@ void ClockFace::GenerateFaceVertices() {
     std::vector<float> vertices;
     std::vector<unsigned int> indices;
     
-    vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(0.01f);  // Position
-    vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(1.0f);     // Normal
-    vertices.push_back(0.95f); vertices.push_back(0.95f); vertices.push_back(0.9f);  // Color (أبيض فاتح)
+    vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(0.01f);  
+    vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(1.0f);     
+    vertices.push_back(0.95f); vertices.push_back(0.95f); vertices.push_back(0.9f);  
     
-    vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(-0.01f);  // Position
-    vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(-1.0f);   // Normal
-    vertices.push_back(0.95f); vertices.push_back(0.95f); vertices.push_back(0.9f); // Color
+    vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(-0.01f);  
+    vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(-1.0f);   
+    vertices.push_back(0.95f); vertices.push_back(0.95f); vertices.push_back(0.9f); 
     
     for (int i = 0; i <= faceSegments; i++) {
         float angle = 2.0f * 3.14159265359f * i / faceSegments;
         float x = faceRadius * cos(angle);
         float y = faceRadius * sin(angle);
         
-        vertices.push_back(x); vertices.push_back(y); vertices.push_back(0.01f);  // Position
-        vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(1.0f);  // Normal
-        vertices.push_back(0.95f); vertices.push_back(0.95f); vertices.push_back(0.9f); // Color
+        vertices.push_back(x); vertices.push_back(y); vertices.push_back(0.01f);  
+        vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(1.0f);  
+        vertices.push_back(0.95f); vertices.push_back(0.95f); vertices.push_back(0.9f); 
         
-        vertices.push_back(x); vertices.push_back(y); vertices.push_back(-0.01f); // Position
-        vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(-1.0f); // Normal
-        vertices.push_back(0.95f); vertices.push_back(0.95f); vertices.push_back(0.9f); // Color
+        vertices.push_back(x); vertices.push_back(y); vertices.push_back(-0.01f);  
+        vertices.push_back(0.0f); vertices.push_back(0.0f); vertices.push_back(-1.0f);  
+        vertices.push_back(0.95f); vertices.push_back(0.95f); vertices.push_back(0.9f); 
     }
     
     for (int i = 0; i < faceSegments; i++) {
-        indices.push_back(0);  // Center
-        indices.push_back(2 + i * 2);  // Current vertex
-        indices.push_back(2 + (i + 1) * 2);  // Next vertex
+        indices.push_back(0);  
+        indices.push_back(2 + i * 2);  
+        indices.push_back(2 + (i + 1) * 2);  
     }
     
     for (int i = 0; i < faceSegments; i++) {
-        indices.push_back(1);  // Center
-        indices.push_back(2 + (i + 1) * 2 + 1);  // Next vertex (back)
-        indices.push_back(2 + i * 2 + 1);  // Current vertex (back)
+        indices.push_back(1);  
+        indices.push_back(2 + (i + 1) * 2 + 1);  
+        indices.push_back(2 + i * 2 + 1);  
     }
     
     SetupBuffers(vertices.data(), vertices.size() * sizeof(float),
