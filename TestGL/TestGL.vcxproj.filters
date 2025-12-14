@@ -21,34 +21,25 @@
     <ClCompile Include="..\OpenGL.SharedModule\src\glad.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ClockBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ClockComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ClockFace.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ClockHand.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\NumberMarker.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Pendulum.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PendulumClock.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Skybox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OrbitPath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,28 +47,16 @@
     <ClInclude Include="headrs\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headrs\ClockBox.h">
+    <ClInclude Include="headrs\Sphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headrs\ClockComponent.h">
+    <ClInclude Include="headrs\TextureLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headrs\ClockFace.h">
+    <ClInclude Include="headrs\Skybox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headrs\ClockHand.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="headrs\NumberMarker.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="headrs\Pendulum.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="headrs\PendulumClock.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="headrs\Shader.h">
+    <ClInclude Include="headrs\OrbitPath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,6 +4,8 @@
 *.suo
 *.userosscache
 *.sln.docstates
+*.VC.db
+*.VC.opendb
 
 # Ignore build results
 [Dd]ebug/
@@ -17,8 +19,33 @@ bld/
 [Bb]in/
 [Oo]bj/
 
+# Ignore build artifacts
+*.obj
+*.pdb
+*.ilk
+*.exe
+*.tlog
+*.idb
+*.ipdb
+*.log
+*.lastbuildstate
+*.cache
+
+# Ignore IntelliSense files
+*.VC.db-shm
+*.VC.db-wal
+*.sdf
+*.opensdf
+
 # Ignore NuGet packages (if you use them)
 packages/
+*.nupkg
+*.snupkg
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+desktop.ini
 
 # Keep this file for consistency
 !.gitignore

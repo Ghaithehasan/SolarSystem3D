@@ -105,7 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\Ghaith\source\repos\TestGL\TestGL\headrs;..\OpenGL.SharedModule\dependencies\include\glad;..\OpenGL.SharedModule\dependencies\include\imGuiFileDialog;..\OpenGL.SharedModule\dependencies\include\imgui\backends;..\OpenGL.SharedModule\dependencies\include\imgui;..\OpenGL.SharedModule\dependencies\include\GLFW;..\OpenGL.SharedModule\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ghaith\source\repos\TestGL\TestGL\headrs;..\OpenGL.SharedModule\dependencies\include\glad;..\OpenGL.SharedModule\dependencies\include\imGuiFileDialog;..\OpenGL.SharedModule\dependencies\include\imgui\backends;..\OpenGL.SharedModule\dependencies\include\imgui;..\OpenGL.SharedModule\dependencies\include\GLFW;..\OpenGL.SharedModule\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,32 +131,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\OpenGL.SharedModule\src\glad.c" />
-    <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\ClockBox.cpp" />
-    <ClCompile Include="src\ClockComponent.cpp" />
-    <ClCompile Include="src\ClockFace.cpp" />
-    <ClCompile Include="src\ClockHand.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\NumberMarker.cpp" />
-    <ClCompile Include="src\Pendulum.cpp" />
-    <ClCompile Include="src\PendulumClock.cpp" />
     <ClCompile Include="src\Shader.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\Sphere.cpp" />
+    <ClCompile Include="src\TextureLoader.cpp" />
+    <ClCompile Include="src\Skybox.cpp" />
+    <ClCompile Include="src\OrbitPath.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenGL.SharedModule\OpenGL.SharedModule.vcxproj">
       <Project>{9e4005e1-525d-4120-bce4-a70decc26973}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="headrs\Camera.h" />
-    <ClInclude Include="headrs\ClockBox.h" />
-    <ClInclude Include="headrs\ClockComponent.h" />
-    <ClInclude Include="headrs\ClockFace.h" />
-    <ClInclude Include="headrs\ClockHand.h" />
-    <ClInclude Include="headrs\NumberMarker.h" />
-    <ClInclude Include="headrs\Pendulum.h" />
-    <ClInclude Include="headrs\PendulumClock.h" />
-    <ClInclude Include="headrs\Shader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
