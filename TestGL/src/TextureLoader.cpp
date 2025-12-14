@@ -41,7 +41,6 @@ unsigned int TextureLoader::loadTexture(const char* path, bool flipVertically) {
 }
 
 unsigned int TextureLoader::loadTextureTIF(const char* path, bool flipVertically) {
-    // TIF files might need special handling, but stb_image should handle it
     return loadTexture(path, flipVertically);
 }
 

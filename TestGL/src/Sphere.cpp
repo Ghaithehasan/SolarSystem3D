@@ -17,13 +17,10 @@ Sphere::Sphere(float radius, int sectors, int stacks) {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
 
-    // Position attribute
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-    // Normal attribute
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
-    // UV attribute
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
 
@@ -53,18 +50,15 @@ void Sphere::generateSphere(float radius, int sectors, int stacks) {
             float x = xy * cosf(sectorAngle);
             float y = xy * sinf(sectorAngle);
 
-            // Position
             vertices.push_back(x);
             vertices.push_back(y);
             vertices.push_back(z);
 
-            // Normal
             glm::vec3 normal = glm::normalize(glm::vec3(x, y, z));
             vertices.push_back(normal.x);
             vertices.push_back(normal.y);
             vertices.push_back(normal.z);
 
-            // UV coordinates
             float u = (float)j / sectors;
             float v = (float)i / stacks;
             vertices.push_back(u);
